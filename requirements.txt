@@ -1,0 +1,9 @@
+streamlit
+opencv-python
+numpy
+pandas
+Pillow
+torch
+facenet-pytorch
+retina-face
+matplotlib
