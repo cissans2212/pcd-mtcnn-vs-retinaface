@@ -1,0 +1,5 @@
+Scenario,Total_Images,Avg_Preprocess_ms,MTCNN_Detected,MTCNN_Detection_Rate_Pct,MTCNN_Crop_Rate_Pct,MTCNN_Avg_Infer_Sec,MTCNN_Avg_Total_Sec,RetinaFace_Detected,RetinaFace_Detection_Rate_Pct,RetinaFace_Crop_Rate_Pct,RetinaFace_Avg_Infer_Sec,RetinaFace_Avg_Total_Sec,Mean_Inter_Model_IoU
+Original,100,0.03,100,100.0,100.0,0.0626,0.0626,100,100.0,100.0,1.2872,1.2872,0.9083
+Brightness,100,0.09,100,100.0,100.0,0.0553,0.0554,100,100.0,100.0,1.3168,1.3169,0.9033
+Contrast,100,0.09,100,100.0,100.0,0.0609,0.061,100,100.0,100.0,1.324,1.3241,0.8985
+CLAHE,100,4.93,100,100.0,100.0,0.0752,0.0802,100,100.0,100.0,1.3237,1.3286,0.904

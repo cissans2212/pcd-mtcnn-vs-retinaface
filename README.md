@@ -36,20 +36,43 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-### 4. Menjalankan Uji Eksperimen
+### 4. Menjalankan Uji Eksperimen Baseline
 ```bash
 python run_experiment.py
 ```
+
+### 5. Menjalankan Eksperimen Preprocessing (Brightness, Contrast, CLAHE)
+```bash
+python run_preprocessing_experiment.py
+```
+
+---
+
+## 🔬 Eksperimen Preprocessing Citra
+Eksperimen ini mengevaluasi 4 skenario prapemrosesan pada 100 citra uji:
+1. **Original**: Citra baseline tanpa transformasi.
+2. **Brightness**: Peningkatan kecerahan linier ($\alpha = 1.0, \beta = 30$).
+3. **Contrast**: Peningkatan kontras global ($\alpha = 1.3, \beta = 0$).
+4. **CLAHE**: Peningkatan kontras adaptif lokal pada kanal Luminance (L) ruang warna CIELAB (`clipLimit = 2.0`, `tileGridSize = (8, 8)`), menjaga integritas warna kulit asli.
 
 ---
 
 ## 📁 Struktur Direktori
 ```text
-├── app.py                 # Aplikasi Web Streamlit
-├── run_experiment.py      # Script eksperimen batch MTCNN vs RetinaFace
-├── requirements.txt       # Daftar dependensi Python
-├── .gitignore             # File abaian Git (ZIP/Cache/Virtualenv)
-├── dataset_selected/      # Sampel dataset terpilih
-├── foto_asli_100/         # Folder gambar asli pengujian
-└── results/               # Output deteksi, crop, dan CSV komparasi
+├── app.py                                          # Aplikasi Web Streamlit (5 Modul Interaktif)
+├── run_experiment.py                               # Script eksperimen batch MTCNN vs RetinaFace (Baseline)
+├── run_preprocessing_experiment.py                 # Script eksperimen 4 skenario preprocessing
+├── preprocessing_utils.py                          # Modul utilitas transformasi citra (Brightness, Contrast, CLAHE)
+├── requirements.txt                                # Daftar dependensi Python
+├── RINGKASAN_PROYEK_DAN_PROGRES.md                 # Ringkasan proyek, hasil, dan pencatat progres (AI handoff)
+├── HASIL_EKSPERIMEN_DAN_LAPORAN_PROYEK.md          # Laporan komprehensif data eksperimen & template prompt jurnal
+├── BAB_4_HASIL_DAN_PEMBAHASAN_LENGKAP.md           # Naskah lengkap Bab IV (Hasil & Pembahasan) skripsi/jurnal
+├── Draf_Jurnal_MTCNN_RetinaFace_ITFORMAN_Kelompok1.docx # Naskah publikasi ilmiah (format ITFORMAN)
+├── dataset_selected/                               # Sampel dataset terpilih (100 citra LFW)
+├── foto_asli_100/                                  # Folder gambar asli pengujian
+└── results/                                        # Output baseline dan folder preprocessing/
+    ├── comparison.csv                              # Rekap hasil baseline
+    ├── preprocessing_comparison.csv                # Rekap 400 pengujian preprocessing
+    ├── preprocessing_scenario_summary.csv          # Rangkuman performa 4 skenario
+    └── preprocessing/                              # Crops, deteksi, dan visualisasi skenario
 ```
